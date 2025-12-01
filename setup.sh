@@ -67,5 +67,7 @@ Exec=konsole -e bash -c "marimo edit --sandbox '%F'; exec bash"
 Icon=utilities-terminal
 EOF
 fi
+chmod +x ~/.local/share/kio/servicemenus/marimomenu.desktop
+
 
 sudo reboot
