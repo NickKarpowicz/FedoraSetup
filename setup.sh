@@ -12,7 +12,7 @@ if lspci | grep -qi "VGA compatible controller: NVIDIA"; then
     echo "NVIDIA GPU detected. Installing drivers..."
     sudo dnf install -y akmod-nvidia xorg-x11-drv-nvidia-cuda
 fi
-exit 1
+
 sudo dnf group install -y multimedia --exclude=PackageKit-gstreamer-plugin
 sudo dnf group install -y sound-and-video
 sudo dnf install -y gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel
