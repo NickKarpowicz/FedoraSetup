@@ -59,6 +59,7 @@ cat > ~/.local/share/kio/servicemenus/marimomenu.desktop << 'EOF'
 Type=Service
 Actions=EditInMarimo;
 MimeType=text/x-python;
+X-KDE-Priority=TopLevel
 
 [Desktop Action EditInMarimo]
 Name=Edit in Marimo
