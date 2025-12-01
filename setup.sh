@@ -45,10 +45,10 @@ rm -rf grub2-themes
 sudo dnf install -y nextcloud-client nextcloud-client-dolphin
 sudo dnf install -y texlive-scheme-medium kile
 
-flatpak install flathub io.github.NickKarpowicz.LightwaveExplorer
-flatpak install flathub dev.zed.Zed
-flatpak install flathub org.onlyoffice.desktopeditors
-flatpak install flathub de.easyroam.easyroam
+flatpak install --user --assumeyes --noninteractive flathub io.github.NickKarpowicz.LightwaveExplorer
+flatpak install --user --assumeyes --noninteractive flathub dev.zed.Zed
+flatpak install --user --assumeyes --noninteractive flathub org.onlyoffice.desktopeditors
+flatpak install --user --assumeyes --noninteractive flathub de.easyroam.easyroam
 
 pip install attoworld
 
