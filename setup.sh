@@ -3,6 +3,16 @@ set -eu
 
 echo "Enabling RPM Fusion repositories and installing codecs..."
 sudo dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+if lspci | grep -qi "VGA compatible controller: NVIDIA"; then
+    if mokutil --sb-state 2>/dev/null | grep -qi enabled; then
+        echo "You need to disable Secure Boot in the BIOS or Nvidia will break!"
+        exit 1
+    fi
+    echo "NVIDIA GPU detected. Installing drivers..."
+    sudo dnf install -y akmod-nvidia xorg-x11-drv-nvidia-cuda
+fi
+exit 1
 sudo dnf group install -y multimedia --exclude=PackageKit-gstreamer-plugin
 sudo dnf group install -y sound-and-video
 sudo dnf install -y gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel
@@ -16,10 +26,7 @@ if flatpak remotes | grep -qi "fedora"; then
 fi
 
 
-if lspci | grep -qi "VGA compatible controller: NVIDIA"; then
-    echo "NVIDIA GPU detected. Installing drivers..."
-    sudo dnf install -y akmod-nvidia xorg-x11-drv-nvidia-cuda
-fi
+
 
 echo "Installing powerline..."
 sudo dnf install -y powerline source-foundry-hack-fonts powerline-fonts
