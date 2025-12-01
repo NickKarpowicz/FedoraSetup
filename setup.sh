@@ -19,7 +19,6 @@ fi
 if lspci | grep -qi "VGA compatible controller: NVIDIA"; then
     echo "NVIDIA GPU detected. Installing drivers..."
     sudo dnf install -y akmod-nvidia xorg-x11-drv-nvidia-cuda
-    echo "NVIDIA drivers installed. Please reboot after script completion."
 fi
 
 echo "Installing powerline..."
@@ -68,5 +67,4 @@ Icon=utilities-terminal
 EOF
 fi
 
-
-echo "Everything is installed! please restart..."
+sudo reboot
