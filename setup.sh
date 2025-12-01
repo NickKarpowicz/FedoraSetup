@@ -48,9 +48,12 @@ sudo ./install.sh -t vimix -s 1080p
 cd ..
 rm -rf grub2-themes
 
+echo "Installing dnf application and development packages..."
 sudo dnf install -y nextcloud-client nextcloud-client-dolphin seafile seafile-client
 sudo dnf install -y texlive-scheme-medium kile
+sudo dnf install -y uv ruff maturin
 
+echo "Installing flatpaks..."
 flatpak install --system --assumeyes --noninteractive flathub io.github.NickKarpowicz.LightwaveExplorer
 flatpak install --system --assumeyes --noninteractive flathub dev.zed.Zed
 flatpak install --system --assumeyes --noninteractive flathub org.onlyoffice.desktopeditors
