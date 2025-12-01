@@ -48,7 +48,7 @@ sudo ./install.sh -t vimix -s 1080p
 cd ..
 rm -rf grub2-themes
 
-sudo dnf install -y nextcloud-client nextcloud-client-dolphin
+sudo dnf install -y nextcloud-client nextcloud-client-dolphin seafile seafile-client
 sudo dnf install -y texlive-scheme-medium kile
 
 flatpak install --user --assumeyes --noninteractive flathub io.github.NickKarpowicz.LightwaveExplorer
