@@ -52,6 +52,8 @@ flatpak install flathub de.easyroam.easyroam
 
 pip install attoworld
 
+
+if [ ! -f ~/.local/share/kio/servicemenus/marimomenu.desktop ]; then
 mkdir -p ~/.local/share/kio/servicemenus
 cat > ~/.local/share/kio/servicemenus/marimomenu.desktop << 'EOF'
 [Desktop Entry]
@@ -64,5 +66,7 @@ Name=Edit in Marimo
 Exec=konsole -e bash -c "marimo edit --sandbox '%F'; exec bash"
 Icon=utilities-terminal
 EOF
+fi
+
 
 echo "Everything is installed! please restart..."
